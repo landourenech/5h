@@ -8,10 +8,10 @@ export default function HeroSection() {
     <section className="flex  items-center justify-center   ">
       
       {/* Contenu centré avec fond jaune très clair */}
-      <div className="rounded-md min-md:w-1/3">
+      <div className="flex flex-col min-md:w-1/3">
         
         {/* Titre principal en grand et en gras */}
-        <h1 className="text-4xl font-bold text-gray-900 mb-4 text-justify ">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4 text-justify max-md:text-center pb-20">
           Ultimate support system  for leading agencies
         </h1>
 
