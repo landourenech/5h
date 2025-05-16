@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function HeroSection() {
   return (
     // Section principale pleine hauteur avec fond orange clair
-    <section className="flex  items-center justify-center   ">
+    <section className="flex  items-center justify-center  gap-2  ">
       
       {/* Contenu centré avec fond jaune très clair */}
       <div className="flex flex-col min-md:w-1/3">
