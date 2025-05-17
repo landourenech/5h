@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimutes Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons via CDN -->
+  <script type="module">
+    import { ChevronRight } from 'https://cdn.skypack.dev/lucide-static';
+  </script>
+</head>
+<body class="bg-white text-gray-900">
+
+  <section class="grid md:grid-cols-2 w-full gap-7 pt-4 px-4 max-w-7xl mx-auto">
+    
+    <!-- Colonne gauche -->
+    <div class="flex flex-col justify-center gap-10">
+      <h2 class="text-2xl font-bold">
+        Meet our premium features that will make you wow
+      </h2>
+
+      <p class="text-sm">
+        Build an incredible workplace and grow your business with Gusto’s all-in-one platform with amazing contents.
+      </p>
+
+      <!-- Grille des fonctionnalités -->
+      <div class="grid grid-cols-2 gap-4">
+        
+        <!-- Colonne 1 -->
+        <div class="flex flex-col gap-4">
+          <h4 class="flex gap-2 items-center">
+            <img src="../../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">Medical and vision</span>
+          </h4>
+          <h4 class="flex gap-2 items-center">
+            <img src="../../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">Life insurance</span>
+          </h4>
+          <h4 class="flex gap-2 items-center">
+            <img src="../../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">400(k) savings</span>
+          </h4>
+        </div>
+
+        <!-- Colonne 2 -->
+        <div class="flex flex-col gap-4">
+          <h4 class="flex gap-2 items-center">
+            <img src="../../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">HSAs and FSAs</span>
+          </h4>
+          <h4 class="flex gap-2 items-center">
+            <img src="../../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">Commuter benefits</span>
+          </h4>
+          <h4 class="flex gap-2 items-center">
+            <img src="../public/icons/shape.svg" alt="Feature" class="w-5 h-5" />
+            <span class="text-sm">529 college savings</span>
+          </h4>
+        </div>
+      </div>
+
+      <!-- Bouton avec flèche -->
+      <button class="flex text-blue-500 gap-2 items-center hover:underline">
+        Explore more
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Colonne droite : illustration -->
+    <div class="flex w-full justify-center items-center">
+      <img
+        src="../../public/images/minutes.svg"
+        alt="Feature illustration"
+        class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
+      />
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Header avec Heroicons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#FFC059',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .mobile-menu {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header principal -->
+  <header class="flex justify-between items-center px-6 py-4 bg-white shadow-md relative z-30">
+    
+    <!-- Logo + Nom -->
+    <div class="flex items-center space-x-2">
+      <img src="/logos/logo.svg" alt="Logo" class="h-8 w-auto">
+      <h1 class="text-xl font-bold text-black">StartupLanding</h1>
+    </div>
+
+    <!-- Navigation desktop -->
+    <nav class="hidden md:flex space-x-6 text-sm items-center text-black">
+      <a href="#" class="hover:text-brand">Home</a>
+      <a href="#" class="hover:text-brand">Services</a>
+      <a href="#" class="hover:text-brand">Support</a>
+      <a href="#" class="hover:text-brand">About</a>
+    </nav>
+
+    <!-- Boutons desktop -->
+    <div class="hidden md:flex space-x-4 items-center">
+      <button class="flex items-center gap-2 text-black px-3 py-1 rounded">
+        <!-- Lock icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0-6a2 2 0 012 2v2a2 2 0 11-4 0v-2a2 2 0 012-2zm0-6a4 4 0 00-4 4v2h8V9a4 4 0 00-4-4z" />
+        </svg>
+        Login
+      </button>
+      <button class="bg-brand text-black px-3 py-1 rounded">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Bouton menu mobile -->
+    <button id="menu-btn" class="md:hidden text-gray-700 z-20">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Icône "Menu" -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-md items-start flex-col space-y-4 p-6 md:hidden z-10 text-black hidden mobile-menu">
+      <nav class="flex flex-col space-y-4 border-amber-400">
+          <a href="#" class="hover:text-brand">Home</a>
+          <a href="#" class="hover:text-brand">Services</a>
+          <a href="#" class="hover:text-brand">Support</a>
+          <a href="#" class="hover:text-brand">About</a>
+        </nav>
+
+      <button class="flex items-center gap-2 text-black px-3 py-2 rounded w-full border border-gray-200">
+        <!-- Lock icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0-6a2 2 0 012 2v2a2 2 0 11-4 0v-2a2 2 0 012-2zm0-6a4 4 0 00-4 4v2h8V9a4 4 0 00-4-4z" />
+        </svg>
+        Login
+      </button>
+
+      <button class="bg-brand text-black px-3 py-2 rounded w-full text-center">
+        Get Started
+      </button>
+    </div>
+  </header>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    let isOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      mobileMenu.classList.toggle('hidden');
+
+      // Changer l'icône Menu ↔ X
+      menuIcon.innerHTML = isOpen
+        ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>` // X
+        : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`; // Menu
+    });
+  </script>
+
+</body>
+</html>

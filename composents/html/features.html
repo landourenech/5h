@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="p-6">
+
+  <section class="grid md:grid-cols-2 w-full gap-7 pt-4">
+    <!-- Bloc avec l'image -->
+    <div class="flex w-full justify-center items-center">
+      <img
+        src="../../public/images/feature.svg"
+        alt="Feature"
+        class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
+      />
+    </div>
+
+    <!-- Bloc avec le texte et les FAQ -->
+    <div class="flex flex-col justify-center gap-4">
+      <h2 class="text-2xl font-bold">
+        Meet our premium features that will make you wow
+      </h2>
+      <p class="text-sm">
+        Build an incredible workplace and grow your business with Gusto’s
+        all-in-one platform with amazing contents.
+      </p>
+
+      <div class="shadow-xl rounded-lg p-4 hover:bg-gray-300 transition-colors mt-4">
+        <h3 class="font-bold mb-2">Organize your project content</h3>
+        <p class="text-sm">
+          Get your website ads tests delivered at let collect sample from the
+          victory of the managments that supplies best design system which
+          guidelines ever with multiple features.
+        </p>
+      </div>
+
+      <!-- FAQ section -->
+      <div class="max-w-xl pt-4 space-y-4" id="faq-container">
+        <!-- Les éléments FAQ seront injectés ici -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const faqData = [
+      {
+        question: "Collaborate your multiple team support easily",
+        answer:
+          "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      {
+        question: "Build your team's knowledge base system",
+        answer:
+          "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+    ];
+
+    const faqContainer = document.getElementById("faq-container");
+
+    faqData.forEach((item, index) => {
+      const faqItem = document.createElement("div");
+      faqItem.className = "border border-gray-200 bg-gray-100 rounded-xl p-4 cursor-pointer select-none";
+      faqItem.setAttribute("data-index", index);
+
+      const faqHeader = document.createElement("div");
+      faqHeader.className = "flex justify-between items-center";
+
+      const question = document.createElement("h3");
+      question.className = "text-sm font-medium text-gray-900";
+      question.textContent = item.question;
+
+      const icon = document.createElement("i");
+      icon.setAttribute("data-lucide", "chevron-down");
+      icon.className = "w-6 h-6 text-gray-400 transition-all";
+      icon.setAttribute("data-toggle-icon", "false");
+
+      faqHeader.appendChild(question);
+      faqHeader.appendChild(icon);
+
+      const answer = document.createElement("p");
+      answer.className = "mt-2 text-gray-700 text-xs hidden";
+      answer.textContent = item.answer;
+
+      faqItem.appendChild(faqHeader);
+      faqItem.appendChild(answer);
+
+      faqContainer.appendChild(faqItem);
+
+      faqItem.addEventListener("click", () => {
+        const isOpen = answer.classList.toggle("hidden");
+        const newIcon = isOpen ? "chevron-down" : "chevron-up";
+        icon.setAttribute("data-lucide", newIcon);
+        icon.classList.toggle("text-[#FFC059]");
+        icon.classList.toggle("text-gray-400");
+        lucide.createIcons();
+      });
+    });
+
+    // Load lucide icons
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+
+  <section class="flex flex-col md:flex-row items-center justify-center gap-2 px-4 py-12">
+
+    <!-- Colonne de contenu -->
+    <div class="flex flex-col md:w-1/3">
+      
+      <!-- Titre -->
+      <h1 class="text-4xl font-bold text-gray-900 mb-4 text-justify max-md:text-center pb-20">
+        Ultimate support system for leading agencies
+      </h1>
+
+      <!-- Paragraphe -->
+      <p class="text-gray-600 mb-6 text-justify">
+        Get your tools enhanced and collaborate seamlessly from support desk to team management.
+      </p>
+
+      <!-- Formulaire -->
+      <form
+        class="flex justify-center max-w-md mx-auto shadow-xl rounded-md overflow-hidden"
+        onsubmit="event.preventDefault(); alert('Email submitted!');"
+      >
+        <input
+          type="email"
+          placeholder="Enter email address"
+          required
+          class="w-full px-4 py-2 border border-gray-300 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFC059] transition-colors duration-200 rounded-l-md"
+        />
+        <button
+          type="submit"
+          class="bg-[#FFC059] px-4 py-2 rounded-r-md hover:bg-yellow-500 transition whitespace-nowrap"
+        >
+          Get Started
+        </button>
+      </form>
+
+      <!-- Logos partenaires -->
+      <div class="flex justify-center items-center space-x-6 mt-8">
+        <div>
+          <img src="/public/partners/sponsored.svg" alt="Sponsored" class="bg-white p-2 rounded-lg w-[100px] h-[40px]" />
+        </div>
+        <div>
+          <img src="/public/partners/paypal.svg" alt="Paypal" class="w-[100px] h-[40px]" />
+        </div>
+        <div>
+          <img src="/public/partners/google.svg" alt="Google" class="w-[100px] h-[40px]" />
+        </div>
+        <div>
+          <img src="/public/partners/dropbox.svg" alt="Dropbox" class="w-[100px] h-[40px]" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Illustration principale -->
+    <div class="hidden md:flex justify-center items-center mt-12 w-2/3 mx-auto">
+      <img
+        src="../../public/illustration.svg"
+        alt="Illustration principale"
+        class="w-[500px] h-auto"
+      />
+    </div>
+  </section>
+
+</body>
+</html>
