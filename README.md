@@ -8,6 +8,5 @@ Ce projet vise particulièrement les développeurs juniors souhaitant acquérir 
 
 Enfin, l’application est entièrement responsive, assurant une expérience optimale sur tous types d’écrans.
 
-Pour la maquette en image, voici comment tu peux l’insérer proprement en Markdown (par exemple dans un README.md) :
 
 ![Maquette de l'application](public/maquette/maquette.png)
