@@ -30,7 +30,7 @@ export default function Footer() {
           </button>
         </form>
     </div>
-    <div className='flex justify-between items-center bg-[#2B293E] w-full p-6 text-white'>
+    <div className='flex justify-between items-center bg-[#2B293E] w-full p-6 text-white max-md:flex-col max-md:gap-4'>
     
     <p className="text-sm">&copy; 2025 StartupLanding. All rights reserved.</p>
     <ul className='flex gap-4 justify-between items-center text-sm'>
