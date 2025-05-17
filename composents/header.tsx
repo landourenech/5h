@@ -26,18 +26,7 @@ export default function Header() {
     <header className="flex justify-between items-center px-6 py-4 bg-white shadow-md relative z-30">
       
       {/* SECTION 1 : Logo + nom du site */}
-      <div className="flex items-center space-x-2">
-        {/* Image du logo de l’entreprise, chargée avec le composant Next.js */}
-        <Image
-          src="/logos/logo.svg" // Chemin de l’image dans le dossier public
-          alt="Logo de l'entreprise"
-          width={100}
-          height={50}
-          className="h-8 w-auto"
-        />
-        {/* Nom de la startup, stylisé */}
-        <h1 className="text-xl font-bold text-black">StartupLanding</h1>
-      </div>
+
 
       {/* SECTION 2 : Liens de navigation (visibles uniquement sur écran moyen et plus grand) */}
       <nav className="hidden md:flex space-x-6 text-sm items-center text-black">
