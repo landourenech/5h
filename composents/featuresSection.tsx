@@ -1,67 +1,96 @@
-import React from 'react'
-import { ArrowRight } from "lucide-react"; // Import de l'icône flèche vers la droite depuis la librairie Lucide
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
-// Composant principal qui affiche une section de deux blocs de fonctionnalités
+const faqData = [
+  {
+    question: "Collaborate your multiple team support easily",
+    answer:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    question: "Build your team's knowledge base system",
+    answer:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+ 
+];
+
 export default function FeaturesSection() {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+  // Ouvrir/fermer une question
+  const toggle = (index: number) => {
+    if (openIndexes.includes(index)) {
+      setOpenIndexes(openIndexes.filter((i) => i !== index));
+    } else {
+      setOpenIndexes([...openIndexes, index]);
+    }
+  };
+
   return (
-    // Section principale contenant deux colonnes à partir du breakpoint "md" (grille responsive)
+    // Section principale contenant deux colonnes à partir du breakpoint "md"
     <section className="grid md:grid-cols-2 w-full gap-7 pt-4">
-      
-      {/* Bloc de fonctionnalité n°1 */}
-      <div className='flex gap-4 w-full shadow-md rounded-lg p-4 hover:bg-amber-500 transition-colors'>
-        
-        {/* Colonne gauche : Image illustrative */}
-        <div className="flex relative bottom-5">
-          <img
-            src="/icons/service.png" // Chemin de l'image locale
-            alt="Illustration principale" // Texte alternatif pour l'accessibilité
-            className="w-[100px] h-[80px]" // Taille de l'image
-          />
+      {/* Bloc avec l'image */}
+      <div className="flex w-full justify-center items-center">
+        <Image
+            src="/images/feature.svg"
+            alt="Feature"
+            width={500}
+            height={500}
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
+        />
         </div>
 
-        {/* Colonne droite : Texte explicatif */}
-        <div className="flex flex-col justify-center">
-          
-          {/* Titre de la fonctionnalité avec une flèche à droite */}
-          <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
-            Explore our features
-            <ArrowRight className="w-5 h-5 text-[#FFC059]" /> {/* Icône flèche avec couleur personnalisée */}
-          </h2>
+      {/* Bloc avec le texte et les FAQ */}
+      <div className="flex flex-col justify-center gap-4">
+        <h2 className="text-2xl font-bold ">
+          Meet our premium features that will make you wow
+        </h2>
+        <p className="text-sm">
+          Build an incredible workplace and grow your business with Gusto’s
+          all-in-one platform with amazing contents.
+        </p>
 
-          {/* Description de la fonctionnalité */}
-          <p className="text-[12px]">
-            Get your website ads tests delivered at let collect sample from the victory of the update managments services.
+        <div className="shadow-xl rounded-lg p-4 hover:bg-gray-300 transition-colors mt-4">
+          <h3 className="font-bold mb-2">Organize your project content</h3>
+          <p className="text-sm">
+            Get your website ads tests delivered at let collect sample from the
+            victory of the managments that supplies best design system which
+            guidelines ever with multiple features.
           </p>
         </div>
-      </div>
 
-      {/* Bloc de fonctionnalité n°2 (copie du premier pour le moment) */}
-      <div className='flex gap-4 w-full shadow-md rounded-lg p-4 hover:bg-amber-500 transition-colors'>
-        
-        {/* Colonne gauche : Image illustrative */}
-        <div className="flex relative bottom-5">
-          <img
-            src="/icons/service.png"
-            alt="Illustration principale"
-            className="w-[100px] h-[80px]"
-          />
-        </div>
+        {/* FAQ section */}
+        <div className="max-w-xl pt-4">
+         
 
-        {/* Colonne droite : Texte explicatif */}
-        <div className="flex flex-col justify-center">
-          
-          {/* Titre de la fonctionnalité avec une flèche */}
-          <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
-            Explore our features
-            <ArrowRight className="w-5 h-5 text-[#FFC059]" />
-          </h2>
-
-          {/* Description de la fonctionnalité */}
-          <p className="text-[12px]">
-            Get your website ads tests delivered at let collect sample from the victory of the update managments services.
-          </p>
+          <div className="space-y-4">
+            {faqData.map(({ question, answer }, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 bg-gray-100 rounded-xl p-4 cursor-pointer select-none"
+                onClick={() => toggle(i)}
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium text-gray-900">
+                    {question}
+                  </h3>
+                  {openIndexes.includes(i) ? (
+                    <ChevronUp className="w-6 h-6 text-[#FFC059]" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-gray-400" />
+                  )}
+                </div>
+                {openIndexes.includes(i) && (
+                  <p className="mt-2 text-gray-700 text-xs">{answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
